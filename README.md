@@ -2,7 +2,7 @@
 
 Analysis code for the manuscript:
 
-> Younas, S. & Anande, T. J. *Rigorous validation reveals limited public health utility of social media language and digital lifestyle markers of psychological distress.* (Manuscript under submission, 2026.)
+> Younas, S. & Anande, T. J. *Digital wellbeing in the social media era: dual pathway analysis of emotional and behavioural distress indicators and public health utility.* (Manuscript under submission, 2026.)
 
 The study evaluates two widely reused open datasets within one reproducible framework:
 
