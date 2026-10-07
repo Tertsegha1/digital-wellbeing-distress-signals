@@ -1,0 +1,9 @@
+pathway,prevalence,ppv,npv,tp_per_1000,fp_per_1000
+language,0.05,0.058,0.962,34,545
+language,0.1,0.116,0.922,68,516
+language,0.2,0.228,0.841,135,459
+language,0.3,0.336,0.755,203,402
+behaviour,0.05,0.171,0.993,45,216
+behaviour,0.1,0.304,0.985,89,204
+behaviour,0.2,0.496,0.966,179,182
+behaviour,0.3,0.627,0.944,268,159

@@ -1,0 +1,114 @@
+{
+  "n_tweets": 18575,
+  "n_users": 72,
+  "tweet_level": {
+    "depression_associated": {
+      "compound_mean": 0.053,
+      "compound_sd": 0.478,
+      "neg_mean": 0.118,
+      "pos_mean": 0.146,
+      "pct_negative": 31.7,
+      "pct_neutral": 29.2,
+      "pct_positive": 39.1
+    },
+    "comparison": {
+      "compound_mean": 0.085,
+      "compound_sd": 0.435,
+      "neg_mean": 0.082,
+      "pos_mean": 0.131,
+      "pct_negative": 24.2,
+      "pct_neutral": 37.4,
+      "pct_positive": 38.4
+    }
+  },
+  "user_level": {
+    "compound": {
+      "depression_mean": 0.02,
+      "depression_sd": 0.317,
+      "comparison_mean": 0.14,
+      "comparison_sd": 0.22,
+      "cohens_d": -0.4,
+      "rank_biserial": -0.1,
+      "mannwhitney_p": 0.5114
+    },
+    "neg": {
+      "depression_mean": 0.128,
+      "depression_sd": 0.093,
+      "comparison_mean": 0.081,
+      "comparison_sd": 0.041,
+      "cohens_d": 0.56,
+      "rank_biserial": 0.33,
+      "mannwhitney_p": 0.0369
+    },
+    "pos": {
+      "depression_mean": 0.147,
+      "depression_sd": 0.073,
+      "comparison_mean": 0.146,
+      "comparison_sd": 0.064,
+      "cohens_d": 0.01,
+      "rank_biserial": 0.07,
+      "mannwhitney_p": 0.663
+    },
+    "pct_neg": {
+      "depression_mean": 0.356,
+      "depression_sd": 0.266,
+      "comparison_mean": 0.236,
+      "comparison_sd": 0.141,
+      "cohens_d": 0.5,
+      "rank_biserial": 0.22,
+      "mannwhitney_p": 0.172
+    }
+  },
+  "user_level_robustness": {
+    "median_compound_depression": 0.086,
+    "median_compound_comparison": 0.099,
+    "n_depression_users_mean_compound_below_minus_0.2": 8,
+    "of_which_with_1_to_4_tweets": 7,
+    "depression_mean_excluding_them": 0.134
+  },
+  "mixed_model": {
+    "compound": {
+      "label_coef": -0.009,
+      "ci_low": -0.0966,
+      "ci_high": 0.0787,
+      "p": 0.8412,
+      "icc": 0.107
+    },
+    "neg": {
+      "label_coef": 0.0231,
+      "ci_low": -0.0026,
+      "ci_high": 0.0488,
+      "p": 0.0783,
+      "icc": 0.077
+    },
+    "pos": {
+      "label_coef": 0.0212,
+      "ci_low": -0.0098,
+      "ci_high": 0.0522,
+      "p": 0.1798,
+      "icc": 0.081
+    }
+  },
+  "sentiment_only_classifier_user_grouped": {
+    "auc": {
+      "estimate": 0.539198,
+      "ci_low": 0.488855,
+      "ci_high": 0.599661
+    },
+    "balanced_accuracy": {
+      "estimate": 0.546372,
+      "ci_low": 0.495608,
+      "ci_high": 0.612025
+    },
+    "sensitivity": {
+      "estimate": 0.597288,
+      "ci_low": 0.537194,
+      "ci_high": 0.657934
+    },
+    "specificity": {
+      "estimate": 0.495456,
+      "ci_low": 0.422403,
+      "ci_high": 0.611688
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# Datasets are not redistributed (download from Kaggle; see data/README.md)
+data/**/*.csv
+data/**/*.zip
+
+# Contains account-specific hashtags; regenerated locally by reanalysis.py
+analysis/output/language_top_terms.csv
+analysis/output/*.png
+analysis/output_log.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/

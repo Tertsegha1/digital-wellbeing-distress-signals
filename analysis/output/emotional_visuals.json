@@ -1,0 +1,207 @@
+{
+  "shared_vocabulary_size": 2307,
+  "top_terms_by_frequency": {
+    "1": [
+      "depression",
+      "like",
+      "just",
+      "love",
+      "people",
+      "know",
+      "good",
+      "time",
+      "day",
+      "overcome",
+      "life",
+      "new",
+      "need",
+      "make",
+      "today",
+      "think",
+      "want",
+      "help",
+      "really",
+      "got",
+      "health",
+      "feel",
+      "talk",
+      "way",
+      "shit"
+    ],
+    "0": [
+      "like",
+      "just",
+      "trump",
+      "know",
+      "love",
+      "people",
+      "thank",
+      "say",
+      "good",
+      "think",
+      "hey",
+      "new",
+      "need",
+      "time",
+      "twitter",
+      "want",
+      "man",
+      "thanks",
+      "right",
+      "year",
+      "did",
+      "god",
+      "got",
+      "follow",
+      "really"
+    ]
+  },
+  "pca_explained_variance_pct": [
+    0.76,
+    0.71
+  ],
+  "pca_standardised_centroid_difference": [
+    -0.126,
+    0.387
+  ],
+  "pca_loadings": {
+    "PC1": {
+      "negative": [
+        "depression",
+        "overcome",
+        "health",
+        "help",
+        "treatment",
+        "thanks"
+      ],
+      "positive": [
+        "like",
+        "know",
+        "hate",
+        "just",
+        "thank",
+        "love"
+      ]
+    },
+    "PC2": {
+      "negative": [
+        "thanks",
+        "follow",
+        "hey",
+        "like",
+        "just",
+        "thank"
+      ],
+      "positive": [
+        "therapy",
+        "treatment",
+        "health",
+        "overcome",
+        "love",
+        "depression"
+      ]
+    }
+  },
+  "pca_regions": {
+    "core (|PC1|,|PC2| < 0.05)": {
+      "n_tweets": 16545,
+      "pct_of_tweets": 89.1,
+      "share_depression": 0.504,
+      "n_users": 65
+    },
+    "mental-health arm (PC2 > 0.1, PC1 < -0.02)": {
+      "n_tweets": 754,
+      "pct_of_tweets": 4.1,
+      "share_depression": 0.988,
+      "n_users": 58
+    },
+    "affect arm (PC1 > 0.15)": {
+      "n_tweets": 547,
+      "pct_of_tweets": 2.9,
+      "share_depression": 0.527,
+      "n_users": 54
+    }
+  },
+  "topics": [
+    {
+      "topic": 1,
+      "top_words": [
+        "good",
+        "day",
+        "like",
+        "feel",
+        "got"
+      ],
+      "n_tweets": 3298,
+      "share_depression": 0.589,
+      "n_users": 60
+    },
+    {
+      "topic": 2,
+      "top_words": [
+        "people",
+        "just",
+        "think",
+        "did",
+        "need"
+      ],
+      "n_tweets": 2930,
+      "share_depression": 0.543,
+      "n_users": 63
+    },
+    {
+      "topic": 3,
+      "top_words": [
+        "depression",
+        "hey",
+        "overcome",
+        "thanks",
+        "follow"
+      ],
+      "n_tweets": 2492,
+      "share_depression": 0.683,
+      "n_users": 68
+    },
+    {
+      "topic": 4,
+      "top_words": [
+        "say",
+        "thank",
+        "twitter",
+        "best",
+        "yes"
+      ],
+      "n_tweets": 2179,
+      "share_depression": 0.462,
+      "n_users": 62
+    },
+    {
+      "topic": 5,
+      "top_words": [
+        "trump",
+        "know",
+        "just",
+        "right",
+        "stop"
+      ],
+      "n_tweets": 3057,
+      "share_depression": 0.426,
+      "n_users": 61
+    },
+    {
+      "topic": 6,
+      "top_words": [
+        "love",
+        "like",
+        "want",
+        "year",
+        "man"
+      ],
+      "n_tweets": 3095,
+      "share_depression": 0.536,
+      "n_users": 63
+    }
+  ],
+  "overall_share_depression": 0.52,
+  "behaviour_corr_screen_tiktok": 0.737
+}

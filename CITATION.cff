@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article."
+title: "Digital distress signals: language, sentiment and lifestyle markers under rigorous validation (analysis code)"
+type: software
+license: MIT
+repository-code: "https://github.com/Tertsegha1/digital-wellbeing-distress-signals"
+authors:
+  - family-names: Younas
+    given-names: Suzana
+    affiliation: "Department of Computing, Ulster University"
+  - family-names: Anande
+    given-names: Tertsegha Joseph
+    affiliation: "Department of Computing, Ulster University"
+    orcid: "https://orcid.org/0009-0009-3418-0525"
+keywords:
+  - digital public health
+  - mental health
+  - social media
+  - sentiment analysis
+  - machine learning
+  - data leakage

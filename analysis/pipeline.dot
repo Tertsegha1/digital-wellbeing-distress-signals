@@ -1,0 +1,24 @@
+digraph G {
+  rankdir=TB; nodesep=0.35; ranksep=0.32;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, fillcolor="#F4F6F8", color="#5B6770", width=2.9];
+  edge [color="#5B6770", arrowsize=0.7];
+  subgraph cluster_l { label="Language pathway"; fontname="Helvetica-Bold"; fontsize=11; color="#C44E52"; style=rounded;
+    l1 [label="Tweets (n = 20,000; 72 users)\nlabel = depression-associated account"];
+    l2 [label="Cleaning: URLs, @mentions, RT removed\nexact duplicates dropped (n = 18,575)"];
+    l3 [label="TF-IDF (1-2 grams) +\nL2 logistic regression"];
+    l4 [label="(a) tweet-level 80/20 split (original design)\n(b) nested user-grouped 5-fold CV (primary)"];
+    l5 [label="Descriptive insights: word clouds, PCA
+emotional landscape, LDA topic bubble chart"];
+    l1->l2->l5->l3->l4; }
+  subgraph cluster_b { label="Behavioural pathway"; fontname="Helvetica-Bold"; fontsize=11; color="#DD8452"; style=rounded;
+    b1 [label="Synthetic records (n = 100,000)\nstress >= 6 = higher stress (62.7%)"];
+    b2 [label="Predictors: screen time, sleep,\nTikTok use, platforms (mood excluded)"];
+    b3 [label="Random forest (tuned by 5-fold CV)\n+ logistic regression comparator"];
+    b4 [label="Stratified 80/20 split; permutation\nimportance; odds ratios; threshold checks"];
+    b5 [label="Descriptive insights: KDE distributions,
+3D behaviour space, group statistics"];
+    b1->b2->b5->b3->b4; }
+  e [label="Common evaluation: AUC, balanced accuracy, sensitivity, specificity,\nF1, MCC with bootstrap 95% CIs (cluster bootstrap by user for language)", fillcolor="#E8EEF4", width=6];
+  p [label="Public health translation: PPV, NPV and screening yield\nper 1,000 people at population prevalence 5-30%", fillcolor="#E6F2E6", width=6];
+  l4->e; b4->e; e->p;
+}
