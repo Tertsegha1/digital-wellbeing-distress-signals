@@ -1,0 +1,5 @@
+pathway,prevalence,ppv,npv,tp_per_1000,fp_per_1000
+behaviour_B,0.05,0.051,0.951,25,467
+behaviour_B,0.1,0.102,0.902,50,442
+behaviour_B,0.2,0.204,0.804,101,393
+behaviour_B,0.3,0.305,0.705,151,344

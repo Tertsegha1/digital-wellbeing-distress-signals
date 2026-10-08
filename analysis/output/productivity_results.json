@@ -1,0 +1,440 @@
+{
+  "n_raw": 30000,
+  "n_missing_stress": 1904,
+  "missing_pct_by_column": {
+    "daily_social_media_time": 9.2,
+    "perceived_productivity_score": 5.4,
+    "actual_productivity_score": 7.9,
+    "stress_level": 6.3,
+    "sleep_hours": 8.7,
+    "screen_time_before_sleep": 7.4,
+    "job_satisfaction_score": 9.1
+  },
+  "n_analysed": 28096,
+  "threshold": 6,
+  "prevalence": 0.500641,
+  "n_higher": 14066,
+  "n_lower": 14030,
+  "stress_distribution": {
+    "1": 2743,
+    "2": 2766,
+    "3": 2857,
+    "4": 2818,
+    "5": 2846,
+    "6": 2834,
+    "7": 2796,
+    "8": 2777,
+    "9": 2807,
+    "10": 2852
+  },
+  "max_abs_correlation_with_stress": 0.0117,
+  "rf_best_params": {
+    "rf__max_depth": 20,
+    "rf__min_samples_split": 10,
+    "rf__n_estimators": 100
+  },
+  "rf_cv_auc_mean": 0.497388,
+  "rf_test": {
+    "accuracy": {
+      "estimate": 0.505872,
+      "ci_low": 0.49306,
+      "ci_high": 0.518505
+    },
+    "balanced_accuracy": {
+      "estimate": 0.505876,
+      "ci_low": 0.493122,
+      "ci_high": 0.518576
+    },
+    "sensitivity": {
+      "estimate": 0.502843,
+      "ci_low": 0.484445,
+      "ci_high": 0.520991
+    },
+    "specificity": {
+      "estimate": 0.508909,
+      "ci_low": 0.489944,
+      "ci_high": 0.527417
+    },
+    "precision_ppv": {
+      "estimate": 0.506624,
+      "ci_low": 0.487573,
+      "ci_high": 0.525303
+    },
+    "npv": {
+      "estimate": 0.505129,
+      "ci_low": 0.487324,
+      "ci_high": 0.522962
+    },
+    "f1": {
+      "estimate": 0.504726,
+      "ci_low": 0.488231,
+      "ci_high": 0.520064
+    },
+    "mcc": {
+      "estimate": 0.011753,
+      "ci_low": -0.013755,
+      "ci_high": 0.037131
+    },
+    "auc": {
+      "estimate": 0.505568,
+      "ci_low": 0.490431,
+      "ci_high": 0.520534
+    },
+    "confusion_matrix": {
+      "tn": 1428,
+      "fp": 1378,
+      "fn": 1399,
+      "tp": 1415
+    },
+    "n_test": 5620,
+    "prevalence_test": 0.5007,
+    "bootstrap": "observation-level"
+  },
+  "majority_baseline_accuracy": 0.500712,
+  "lr_test": {
+    "accuracy": {
+      "estimate": 0.499288,
+      "ci_low": 0.485943,
+      "ci_high": 0.512456
+    },
+    "balanced_accuracy": {
+      "estimate": 0.499247,
+      "ci_low": 0.485883,
+      "ci_high": 0.512369
+    },
+    "sensitivity": {
+      "estimate": 0.528429,
+      "ci_low": 0.509663,
+      "ci_high": 0.546629
+    },
+    "specificity": {
+      "estimate": 0.470064,
+      "ci_low": 0.451681,
+      "ci_high": 0.488557
+    },
+    "precision_ppv": {
+      "estimate": 0.5,
+      "ci_low": 0.48221,
+      "ci_high": 0.517864
+    },
+    "npv": {
+      "estimate": 0.498488,
+      "ci_low": 0.478759,
+      "ci_high": 0.517688
+    },
+    "f1": {
+      "estimate": 0.513822,
+      "ci_low": 0.497983,
+      "ci_high": 0.529018
+    },
+    "mcc": {
+      "estimate": -0.001509,
+      "ci_low": -0.028285,
+      "ci_high": 0.024766
+    },
+    "auc": {
+      "estimate": 0.497772,
+      "ci_low": 0.481827,
+      "ci_high": 0.51272
+    },
+    "confusion_matrix": {
+      "tn": 1319,
+      "fp": 1487,
+      "fn": 1327,
+      "tp": 1487
+    },
+    "n_test": 5620,
+    "prevalence_test": 0.5007,
+    "bootstrap": "observation-level"
+  },
+  "rf_test_all_variables": {
+    "accuracy": {
+      "estimate": 0.495552,
+      "ci_low": 0.481134,
+      "ci_high": 0.508012
+    },
+    "balanced_accuracy": {
+      "estimate": 0.49554,
+      "ci_low": 0.481066,
+      "ci_high": 0.507875
+    },
+    "sensitivity": {
+      "estimate": 0.503909,
+      "ci_low": 0.48507,
+      "ci_high": 0.522228
+    },
+    "specificity": {
+      "estimate": 0.48717,
+      "ci_low": 0.469523,
+      "ci_high": 0.505557
+    },
+    "precision_ppv": {
+      "estimate": 0.496325,
+      "ci_low": 0.479261,
+      "ci_high": 0.515249
+    },
+    "npv": {
+      "estimate": 0.494752,
+      "ci_low": 0.475516,
+      "ci_high": 0.512737
+    },
+    "f1": {
+      "estimate": 0.500088,
+      "ci_low": 0.483882,
+      "ci_high": 0.51622
+    },
+    "mcc": {
+      "estimate": -0.008922,
+      "ci_low": -0.037903,
+      "ci_high": 0.015747
+    },
+    "auc": {
+      "estimate": 0.49674,
+      "ci_low": 0.480685,
+      "ci_high": 0.512131
+    },
+    "confusion_matrix": {
+      "tn": 1367,
+      "fp": 1439,
+      "fn": 1396,
+      "tp": 1418
+    },
+    "n_test": 5620,
+    "prevalence_test": 0.5007,
+    "bootstrap": "observation-level"
+  },
+  "permutation_importance_auc_drop": {
+    "screen_time_before_sleep": {
+      "mean": 0.007293,
+      "sd": 0.004261
+    },
+    "uses_focus_apps": {
+      "mean": 0.006109,
+      "sd": 0.002784
+    },
+    "sleep_hours": {
+      "mean": 0.005086,
+      "sd": 0.004353
+    },
+    "weekly_offline_hours": {
+      "mean": 0.004,
+      "sd": 0.003844
+    },
+    "daily_social_media_time": {
+      "mean": 0.003925,
+      "sd": 0.004056
+    },
+    "breaks_during_work": {
+      "mean": 0.003734,
+      "sd": 0.003287
+    },
+    "number_of_notifications": {
+      "mean": 0.000645,
+      "sd": 0.003577
+    },
+    "work_hours_per_day": {
+      "mean": -0.000463,
+      "sd": 0.005067
+    },
+    "has_digital_wellbeing_enabled": {
+      "mean": -0.000489,
+      "sd": 0.002611
+    },
+    "coffee_consumption_per_day": {
+      "mean": -0.002128,
+      "sd": 0.003699
+    },
+    "social_platform_preference": {
+      "mean": -0.002845,
+      "sd": 0.00495
+    }
+  },
+  "odds_ratios_per_unit": {
+    "daily_social_media_time": {
+      "OR": 1.00376,
+      "CI_low": 0.990894,
+      "CI_high": 1.016793,
+      "p": 0.568544
+    },
+    "sleep_hours": {
+      "OR": 1.000414,
+      "CI_low": 0.982313,
+      "CI_high": 1.018848,
+      "p": 0.964604
+    },
+    "screen_time_before_sleep": {
+      "OR": 0.988967,
+      "CI_low": 0.949386,
+      "CI_high": 1.030198,
+      "p": 0.594462
+    },
+    "number_of_notifications": {
+      "OR": 0.997139,
+      "CI_low": 0.99372,
+      "CI_high": 1.00057,
+      "p": 0.102138
+    },
+    "work_hours_per_day": {
+      "OR": 1.005753,
+      "CI_low": 0.992391,
+      "CI_high": 1.019294,
+      "p": 0.400551
+    },
+    "breaks_during_work": {
+      "OR": 1.004247,
+      "CI_low": 0.995846,
+      "CI_high": 1.012719,
+      "p": 0.322786
+    },
+    "coffee_consumption_per_day": {
+      "OR": 1.001115,
+      "CI_low": 0.982387,
+      "CI_high": 1.0202,
+      "p": 0.907945
+    },
+    "weekly_offline_hours": {
+      "OR": 0.999727,
+      "CI_low": 0.996065,
+      "CI_high": 1.003403,
+      "p": 0.884043
+    },
+    "uses_focus_apps": {
+      "OR": 1.033329,
+      "CI_low": 0.974878,
+      "CI_high": 1.095285,
+      "p": 0.269788
+    },
+    "has_digital_wellbeing_enabled": {
+      "OR": 0.937854,
+      "CI_low": 0.881459,
+      "CI_high": 0.997857,
+      "p": 0.042584
+    }
+  },
+  "n_complete_cases_for_or": 21589,
+  "threshold_sensitivity": {
+    "5": {
+      "prevalence": 0.602,
+      "auc": {
+        "estimate": 0.502015,
+        "ci_low": 0.48469,
+        "ci_high": 0.517056
+      },
+      "balanced_accuracy": 0.498447
+    },
+    "7": {
+      "prevalence": 0.3998,
+      "auc": {
+        "estimate": 0.499302,
+        "ci_low": 0.484916,
+        "ci_high": 0.514634
+      },
+      "balanced_accuracy": 0.49949
+    }
+  },
+  "subgroups": {
+    "gender": {
+      "Female": {
+        "n": 2680,
+        "auc": {
+          "estimate": 0.503751,
+          "ci_low": 0.483488,
+          "ci_high": 0.524963
+        },
+        "balanced_accuracy": 0.49998,
+        "sensitivity": 0.495502,
+        "specificity": 0.504458
+      },
+      "Male": {
+        "n": 2715,
+        "auc": {
+          "estimate": 0.502472,
+          "ci_low": 0.482083,
+          "ci_high": 0.523378
+        },
+        "balanced_accuracy": 0.507914,
+        "sensitivity": 0.505908,
+        "specificity": 0.509919
+      },
+      "Other": {
+        "n": 225,
+        "auc": {
+          "estimate": 0.563893,
+          "ci_low": 0.493179,
+          "ci_high": 0.644363
+        },
+        "balanced_accuracy": 0.551587,
+        "sensitivity": 0.547619,
+        "specificity": 0.555556
+      }
+    },
+    "job_type": {
+      "Education": {
+        "n": 987,
+        "auc": {
+          "estimate": 0.496978,
+          "ci_low": 0.461072,
+          "ci_high": 0.530552
+        },
+        "balanced_accuracy": 0.497528,
+        "sensitivity": 0.488934,
+        "specificity": 0.506122
+      },
+      "Finance": {
+        "n": 922,
+        "auc": {
+          "estimate": 0.502849,
+          "ci_low": 0.465903,
+          "ci_high": 0.539228
+        },
+        "balanced_accuracy": 0.496746,
+        "sensitivity": 0.501085,
+        "specificity": 0.492408
+      },
+      "Health": {
+        "n": 932,
+        "auc": {
+          "estimate": 0.517183,
+          "ci_low": 0.477152,
+          "ci_high": 0.553801
+        },
+        "balanced_accuracy": 0.525381,
+        "sensitivity": 0.539749,
+        "specificity": 0.511013
+      },
+      "IT": {
+        "n": 966,
+        "auc": {
+          "estimate": 0.511647,
+          "ci_low": 0.475781,
+          "ci_high": 0.546967
+        },
+        "balanced_accuracy": 0.510436,
+        "sensitivity": 0.507071,
+        "specificity": 0.5138
+      },
+      "Student": {
+        "n": 946,
+        "auc": {
+          "estimate": 0.498735,
+          "ci_low": 0.466144,
+          "ci_high": 0.538003
+        },
+        "balanced_accuracy": 0.501252,
+        "sensitivity": 0.470588,
+        "specificity": 0.531915
+      },
+      "Unemployed": {
+        "n": 867,
+        "auc": {
+          "estimate": 0.504097,
+          "ci_low": 0.464531,
+          "ci_high": 0.542922
+        },
+        "balanced_accuracy": 0.504441,
+        "sensitivity": 0.511057,
+        "specificity": 0.497826
+      }
+    }
+  }
+}

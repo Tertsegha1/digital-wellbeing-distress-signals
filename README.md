@@ -13,22 +13,25 @@ This repository contains the **methodological enhancements** by Tertsegha Joseph
 - VADER sentiment analysis with user-level and mixed-model tests;
 - bootstrap confidence intervals;
 - translation into population-level predictive values;
-- the reproducible figure pipeline.
+- the reproducible figure pipeline;
+- re-analysis of the main project's *Social Media vs Productivity* dataset with the same rigorous pipeline.
 
-The two repositories use the same Twitter corpus. The behavioural results reported in the manuscript come from the *Digital Habits vs. Mental Health* dataset, analysed with the code in this repository.
+The two repositories use the same Twitter corpus. The manuscript reports the behavioural pathway in two synthetic datasets: *Digital Habits vs. Mental Health*, and the main project's *Social Media vs Productivity* dataset, both analysed with the code in this repository.
 
 ## Overview
 
-The study evaluates two widely reused open datasets within one reproducible framework:
+The study evaluates three widely reused open datasets within one reproducible framework:
 
 - **Emotional pathway:** 20,000 English tweets from 72 Twitter users, labelled by whether the account belonged to a user identified as depressed. It uses TF-IDF with logistic regression and VADER sentiment, evaluated with a tweet-level split and with nested **user-grouped** cross-validation.
-- **Behavioural pathway:** 100,000 **synthetic** records of screen time, sleep, TikTok use and number of platforms, with self-reported stress dichotomised at 6 or more. It uses a random forest and a logistic regression comparator.
+- **Behavioural pathway:** two **synthetic** datasets, with self-reported stress dichotomised at 6 or more and a random forest plus a logistic regression comparator:
+  - *Digital Habits vs. Mental Health*: 100,000 records of screen time, sleep, TikTok use and number of platforms.
+  - *Social Media vs Productivity* (the main project's dataset): 30,000 records of social media time, sleep, screen time before sleep, notifications and other digital habits, with demographics.
 
 Main findings:
 - **The language model's accuracy depends on how it is tested.** Its AUC is 0.835 with a tweet-level split but falls to 0.595 (95% CI 0.505–0.686) on users unseen in training, because the model largely recognises users and their topics.
 - **Sentiment alone cannot identify unseen users** (AUC 0.539).
-- **The behavioural models discriminate well** (AUC 0.926 and 0.927), but on synthetic data whose effects far exceed those observed in real populations.
-- **At a population prevalence of 10%**, positive predictive values would be only 0.12 and 0.30.
+- **The two synthetic behavioural datasets give opposite answers.** In *Digital Habits* the models discriminate well (AUC 0.926 and 0.927), with effects far larger than those observed in real populations. In *Social Media vs Productivity* they perform at chance (AUC 0.506 and 0.498), even with every available variable, because stress is generated independently of behaviour. Synthetic results reflect how the data were generated.
+- **At a population prevalence of 10%**, positive predictive values would be only 0.12 (language), 0.30 (*Digital Habits*) and 0.10 (*Social Media vs Productivity*).
 
 ## Repository structure
 
@@ -37,6 +40,7 @@ analysis/
   reanalysis.py          models, evaluation, bootstrap CIs, odds ratios, PPV tables
   emotional_visuals.py   word clouds, PCA landscape, LDA topics, 3D behaviour plot
   sentiment_analysis.py  VADER sentiment, user-level tests, mixed models, sentiment-only classifier
+  behaviour_productivity.py  Social Media vs Productivity dataset: models, CIs, odds ratios, thresholds, subgroups
   make_figures.py        manuscript figures from results.json
   scirep_figures.py      composite language figure (Scientific Reports layout)
   pipeline.dot           workflow diagram (Graphviz)
@@ -51,6 +55,7 @@ The datasets are not redistributed here. Download them from Kaggle and place the
 
 - *Depression: Twitter Dataset + Feature Extraction* (InFamousCoder, version 2): <https://www.kaggle.com/datasets/infamouscoder/mental-health-social-media>
 - *Digital Habits vs. Mental Health* (Abhishek Dave, version 2; synthetic): <https://www.kaggle.com/datasets/abhishekdave9/digital-habits-vs-mental-health-dataset>
+- *Social Media vs Productivity* (Mahdi Mashayekhi, version 1; synthetic): <https://www.kaggle.com/datasets/mahdimashayekhi/social-media-vs-productivity>
 
 ## Reproducing the results
 
@@ -75,13 +80,18 @@ pip install -r requirements.txt
    python analysis/sentiment_analysis.py
    ```
 
-4. **Remaining figures.**
+4. **Social Media vs Productivity dataset.** This step takes about 10 minutes.
+   ```bash
+   python analysis/behaviour_productivity.py --data data/productivity/social_media_vs_productivity.csv
+   ```
+
+5. **Remaining figures.**
    ```bash
    python analysis/make_figures.py --behaviour data/behaviour/digital_habits_vs_mental_health.csv
    python analysis/scirep_figures.py
    ```
 
-5. **Workflow diagram.** This step needs Graphviz.
+6. **Workflow diagram.** This step needs Graphviz.
    ```bash
    dot -Tpng -Gdpi=300 analysis/pipeline.dot -o figures/fig1_pipeline.png
    ```
@@ -98,6 +108,10 @@ Tested with Python 3.11.9, scikit-learn 1.9.1, pandas 3.0.6 and statsmodels 0.15
 | `ppv_population.csv` | Positive and negative predictive values and screening yield at 5–30% prevalence |
 | `emotional_visuals.json` | Word-cloud vocabulary, PCA regions and LDA topic statistics |
 | `sentiment.json` | VADER sentiment by group, user-level tests, mixed models, sentiment-only classifier |
+| `productivity_results.json` | *Social Media vs Productivity*: model performance with 95% CIs, all-variables model, thresholds, permutation importance, odds ratios, subgroups |
+| `productivity_descriptives.csv` | *Social Media vs Productivity* descriptives by stress group |
+| `productivity_odds_ratios.csv` | *Social Media vs Productivity* mutually adjusted odds ratios |
+| `ppv_population_productivity.csv` | *Social Media vs Productivity* predictive values at 5–30% prevalence |
 
 `reanalysis.py` also writes `language_top_terms.csv`. That file is excluded from version control because it contains account-specific hashtags. Descriptive text analyses use only words written by at least five different users, so that individuals cannot be identified.
 

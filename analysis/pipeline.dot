@@ -11,10 +11,10 @@ digraph G {
 emotional landscape, LDA topic bubble chart"];
     l1->l2->l5->l3->l4; }
   subgraph cluster_b { label="Behavioural pathway"; fontname="Helvetica-Bold"; fontsize=11; color="#DD8452"; style=rounded;
-    b1 [label="Synthetic records (n = 100,000)\nstress >= 6 = higher stress (62.7%)"];
-    b2 [label="Predictors: screen time, sleep,\nTikTok use, platforms (mood excluded)"];
+    b1 [label="Two synthetic datasets: Digital Habits (n = 100,000)\nand Social Media vs Productivity (n = 30,000); stress >= 6"];
+    b2 [label="Behavioural predictors only; outcome-like\nmeasures excluded; imputation in pipeline"];
     b3 [label="Random forest (tuned by 5-fold CV)\n+ logistic regression comparator"];
-    b4 [label="Stratified 80/20 split; permutation\nimportance; odds ratios; threshold checks"];
+    b4 [label="Stratified 80/20 split; permutation importance;\nodds ratios; threshold and subgroup checks"];
     b5 [label="Descriptive insights: KDE distributions,
 3D behaviour space, group statistics"];
     b1->b2->b5->b3->b4; }

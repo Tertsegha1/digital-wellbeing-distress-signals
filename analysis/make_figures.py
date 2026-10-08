@@ -51,6 +51,8 @@ def main():
     ap.add_argument("--results", default="analysis/output/results.json")
     ap.add_argument("--behaviour", required=True)
     ap.add_argument("--threshold", type=float, default=6)
+    ap.add_argument("--productivity", default="data/productivity/social_media_vs_productivity.csv",
+                    help="Social Media vs Productivity dataset (optional; adds panels and rows when present)")
     ap.add_argument("--out", default="figures")
     a = ap.parse_args()
     out = Path(a.out)
@@ -69,14 +71,44 @@ def main():
     fig.savefig(out / "fig2_behaviour_kde.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
 
+    # Four-panel behavioural distributions: Digital Habits (a, b) and Social Media vs Productivity (c, d)
+    prod_path = Path(a.productivity)
+    if prod_path.exists():
+        pdf = pd.read_csv(prod_path).dropna(subset=["stress_level"])
+        py = (pdf["stress_level"] >= a.threshold).astype(int)
+        fig, axes = plt.subplots(2, 2, figsize=(9, 6.4))
+        kde_panel(axes[0, 0], df, "screen_time_hours", y, "Screen time (hours/day)", "a  Digital Habits")
+        kde_panel(axes[0, 1], df, "sleep_hours", y, "Sleep duration (hours/night)", "b  Digital Habits")
+        for ax, col, label, letter in [(axes[1, 0], "daily_social_media_time", "Daily social media time (hours)",
+                                        "c  Social Media vs Productivity"),
+                                       (axes[1, 1], "sleep_hours", "Sleep duration (hours/night)",
+                                        "d  Social Media vs Productivity")]:
+            sub = pdf[[col]].assign(g=py).dropna()
+            for g, name, colr in [(0, "Lower stress", LOWER), (1, "Higher stress", HIGHER)]:
+                sub.loc[sub.g == g, col].plot.kde(ax=ax, label=name, color=colr, lw=1.8)
+            ax.set_xlim(sub[col].min(), sub[col].quantile(0.995))
+            ax.set_xlabel(label)
+            ax.set_ylabel("Density")
+            ax.set_title(letter, loc="left", fontweight="bold")
+            ax.spines[["top", "right"]].set_visible(False)
+        axes[0, 1].legend(frameon=False)
+        fig.tight_layout()
+        fig.savefig(out / "fig2_behaviour_kde_both.png", dpi=300, bbox_inches="tight")
+        plt.close(fig)
+
     # Figure 3: effect of validation design (AUC and balanced accuracy with 95% CIs)
     rows = [
         ("Language\ntweet-level split", L["tweet_level_split"]["test"], "#9AA5B1"),
         ("Language\nuser-grouped CV", L["user_grouped_cv"]["test"], "#C44E52"),
-        ("Behaviour\nrandom forest", B["rf_test"], HIGHER),
-        ("Behaviour\nlogistic regression", B["lr_test"], "#E8B48A"),
+        ("Digital Habits\nrandom forest", B["rf_test"], HIGHER),
+        ("Digital Habits\nlogistic regression", B["lr_test"], "#E8B48A"),
     ]
-    fig, axes = plt.subplots(1, 2, figsize=(9, 3.6), sharey=True)
+    prod_results = Path(a.results).parent / "productivity_results.json"
+    if prod_results.exists():
+        P = json.loads(prod_results.read_text())
+        rows += [("Social Media vs\nProductivity, RF", P["rf_test"], "#55A868"),
+                 ("Social Media vs\nProductivity, LR", P["lr_test"], "#9BCB9F")]
+    fig, axes = plt.subplots(1, 2, figsize=(9, 0.75 * len(rows) + 0.6), sharey=True)
     for ax, metric, title in [(axes[0], "auc", "a  AUC"), (axes[1], "balanced_accuracy", "b  Balanced accuracy")]:
         for i, (lab, t, colr) in enumerate(rows):
             e, lo, hi = t[metric]["estimate"], t[metric]["ci_low"], t[metric]["ci_high"]
@@ -88,7 +120,7 @@ def main():
         ax.spines[["top", "right"]].set_visible(False)
         ax.set_yticks(range(len(rows)), [r_[0] for r_ in rows])
     axes[0].invert_yaxis()
-    axes[0].text(0.505, -0.55, "chance", color="grey", fontsize=8)
+    axes[0].text(0.505, -0.6, "chance", color="grey", fontsize=8)
     fig.tight_layout()
     fig.savefig(out / "fig3_validation.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
