@@ -4,6 +4,21 @@ Analysis code for the manuscript:
 
 > Younas, S. & Anande, T. J. *Digital wellbeing in the social media era: dual pathway analysis of emotional and behavioural distress indicators and public health utility.* (Manuscript under submission, 2026.)
 
+## Relationship to the main project
+
+The main project repository is **[suzanayounas/Mental-Health-Vs-Social-Media](https://github.com/suzanayounas/Mental-Health-Vs-Social-Media)**. There, Suzana Younas conceived and first developed the dual-pathway analysis of emotional (Twitter) and behavioural distress indicators.
+
+This repository contains the **methodological enhancements** by Tertsegha Joseph Anande that produce every result, table and figure reported in the manuscript:
+- user-grouped (leakage-free) validation;
+- VADER sentiment analysis with user-level and mixed-model tests;
+- bootstrap confidence intervals;
+- translation into population-level predictive values;
+- the reproducible figure pipeline.
+
+The two repositories use the same Twitter corpus. The behavioural results reported in the manuscript come from the *Digital Habits vs. Mental Health* dataset, analysed with the code in this repository.
+
+## Overview
+
 The study evaluates two widely reused open datasets within one reproducible framework:
 
 - **Emotional pathway:** 20,000 English tweets from 72 Twitter users, labelled by whether the account belonged to a user identified as depressed. It uses TF-IDF with logistic regression and VADER sentiment, evaluated with a tweet-level split and with nested **user-grouped** cross-validation.

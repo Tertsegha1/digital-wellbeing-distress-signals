@@ -88,7 +88,7 @@ def main():
         ax.spines[["top", "right"]].set_visible(False)
         ax.set_yticks(range(len(rows)), [r_[0] for r_ in rows])
     axes[0].invert_yaxis()
-    axes[0].text(0.505, 3.45, "chance", color="grey", fontsize=8)
+    axes[0].text(0.505, -0.55, "chance", color="grey", fontsize=8)
     fig.tight_layout()
     fig.savefig(out / "fig3_validation.png", dpi=300, bbox_inches="tight")
     plt.close(fig)

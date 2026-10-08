@@ -12,6 +12,13 @@ authors:
     given-names: Tertsegha Joseph
     affiliation: "Department of Computing, Ulster University"
     orcid: "https://orcid.org/0009-0009-3418-0525"
+references:
+  - type: software
+    title: "Mental-Health-Vs-Social-Media (main project)"
+    authors:
+      - family-names: Younas
+        given-names: Suzana
+    repository-code: "https://github.com/suzanayounas/Mental-Health-Vs-Social-Media"
 keywords:
   - digital public health
   - mental health
