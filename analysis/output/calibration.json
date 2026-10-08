@@ -1,0 +1,140 @@
+{
+  "Language, tweet-level split": {
+    "brier": {
+      "estimate": 0.16825,
+      "ci_low": 0.163554,
+      "ci_high": 0.173263
+    },
+    "scaled_brier": {
+      "estimate": 0.325915,
+      "ci_low": 0.306003,
+      "ci_high": 0.34483
+    },
+    "intercept": {
+      "estimate": -0.02567,
+      "ci_low": -0.094794,
+      "ci_high": 0.040285
+    },
+    "slope": {
+      "estimate": 1.561549,
+      "ci_low": 1.459702,
+      "ci_high": 1.674812
+    },
+    "n": 3715
+  },
+  "Language, user-grouped CV": {
+    "brier": {
+      "estimate": 0.261244,
+      "ci_low": 0.222822,
+      "ci_high": 0.294263
+    },
+    "scaled_brier": {
+      "estimate": -0.046678,
+      "ci_low": -0.348561,
+      "ci_high": 0.055065
+    },
+    "intercept": {
+      "estimate": -0.205254,
+      "ci_low": -1.080439,
+      "ci_high": 1.036259
+    },
+    "slope": {
+      "estimate": 0.319228,
+      "ci_low": 0.077161,
+      "ci_high": 0.579057
+    },
+    "n": 18575
+  },
+  "Digital Habits, random forest": {
+    "brier": {
+      "estimate": 0.105664,
+      "ci_low": 0.103108,
+      "ci_high": 0.108274
+    },
+    "scaled_brier": {
+      "estimate": 0.548344,
+      "ci_low": 0.537029,
+      "ci_high": 0.55944
+    },
+    "intercept": {
+      "estimate": 0.018682,
+      "ci_low": -0.026445,
+      "ci_high": 0.060022
+    },
+    "slope": {
+      "estimate": 0.990075,
+      "ci_low": 0.962932,
+      "ci_high": 1.018456
+    },
+    "n": 20000
+  },
+  "Digital Habits, logistic regression": {
+    "brier": {
+      "estimate": 0.105187,
+      "ci_low": 0.102599,
+      "ci_high": 0.107897
+    },
+    "scaled_brier": {
+      "estimate": 0.550381,
+      "ci_low": 0.538603,
+      "ci_high": 0.561791
+    },
+    "intercept": {
+      "estimate": 0.022489,
+      "ci_low": -0.02631,
+      "ci_high": 0.064388
+    },
+    "slope": {
+      "estimate": 0.971026,
+      "ci_low": 0.944617,
+      "ci_high": 0.997795
+    },
+    "n": 20000
+  },
+  "Social Media vs Productivity, random forest": {
+    "brier": {
+      "estimate": 0.251859,
+      "ci_low": 0.25068,
+      "ci_high": 0.253045
+    },
+    "scaled_brier": {
+      "estimate": -0.00744,
+      "ci_low": -0.012377,
+      "ci_high": -0.00294
+    },
+    "intercept": {
+      "estimate": -0.001973,
+      "ci_low": -0.049919,
+      "ci_high": 0.050697
+    },
+    "slope": {
+      "estimate": 0.057882,
+      "ci_low": -0.218172,
+      "ci_high": 0.334056
+    },
+    "n": 5620
+  },
+  "Social Media vs Productivity, logistic regression": {
+    "brier": {
+      "estimate": 0.250161,
+      "ci_low": 0.249918,
+      "ci_high": 0.250421
+    },
+    "scaled_brier": {
+      "estimate": -0.000647,
+      "ci_low": -0.002014,
+      "ci_high": 0.000258
+    },
+    "intercept": {
+      "estimate": 0.000363,
+      "ci_low": -0.047225,
+      "ci_high": 0.053647
+    },
+    "slope": {
+      "estimate": -0.387996,
+      "ci_low": -1.806137,
+      "ci_high": 0.939971
+    },
+    "n": 5620
+  }
+}

@@ -41,6 +41,7 @@ analysis/
   emotional_visuals.py   word clouds, PCA landscape, LDA topics, 3D behaviour plot
   sentiment_analysis.py  VADER sentiment, user-level tests, mixed models, sentiment-only classifier
   behaviour_productivity.py  Social Media vs Productivity dataset: models, CIs, odds ratios, thresholds, subgroups
+  calibration.py         calibration of every primary model (Brier, calibration-in-the-large, slope, plots)
   make_figures.py        manuscript figures from results.json
   scirep_figures.py      composite language figure (Scientific Reports layout)
   pipeline.dot           workflow diagram (Graphviz)
@@ -85,13 +86,18 @@ pip install -r requirements.txt
    python analysis/behaviour_productivity.py --data data/productivity/social_media_vs_productivity.csv
    ```
 
-5. **Remaining figures.**
+5. **Calibration.** This refits each model and checks it reproduces the published AUC before computing calibration.
+   ```bash
+   python analysis/calibration.py
+   ```
+
+6. **Remaining figures.**
    ```bash
    python analysis/make_figures.py --behaviour data/behaviour/digital_habits_vs_mental_health.csv
    python analysis/scirep_figures.py
    ```
 
-6. **Workflow diagram.** This step needs Graphviz.
+7. **Workflow diagram.** This step needs Graphviz.
    ```bash
    dot -Tpng -Gdpi=300 analysis/pipeline.dot -o figures/fig1_pipeline.png
    ```
@@ -112,6 +118,7 @@ Tested with Python 3.11.9, scikit-learn 1.9.1, pandas 3.0.6 and statsmodels 0.15
 | `productivity_descriptives.csv` | *Social Media vs Productivity* descriptives by stress group |
 | `productivity_odds_ratios.csv` | *Social Media vs Productivity* mutually adjusted odds ratios |
 | `ppv_population_productivity.csv` | *Social Media vs Productivity* predictive values at 5–30% prevalence |
+| `calibration.json` | Calibration of every primary model: Brier and scaled Brier scores, calibration-in-the-large and slope, with 95% CIs |
 
 `reanalysis.py` also writes `language_top_terms.csv`. That file is excluded from version control because it contains account-specific hashtags. Descriptive text analyses use only words written by at least five different users, so that individuals cannot be identified.
 
